@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menuiserie Meyer — Sur-mesure haut de gamme depuis 80 ans</title>
+  <meta name="description" content="Menuiserie Meyer à Jouxtens-Mézery — Menuiserie et agencement sur mesure. Une signature artisanale haut de gamme depuis plus de 80 ans." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --hero:#0f172a;
+      --section:#1a1a2e;
+      --card:#111827;
+      --card2:#0b1220;
+      --gold:#d4a574;
+      --gold2:#f1c27d;
+      --text:#e5e7eb;
+      --muted:#b6c0d1;
+      --muted2:#9ca3af;
+      --stroke:rgba(212,165,116,.18);
+      --shadow:0 18px 55px rgba(0,0,0,.55);
+      --shadowGold:0 18px 55px rgba(212,165,116,.18);
+      --r:16px;
+      --r2:22px;
+      --t:0.35s ease;
+      --glass:rgba(15,23,42,.45);
+      --glass2:rgba(17,24,39,.55);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(212,165,116,.08), transparent 60%),
+                  radial-gradient(900px 700px at 90% 20%, rgba(241,194,125,.06), transparent 55%),
+                  linear-gradient(180deg, #0b1220 0%, #0a1020 40%, #080c16 100%);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    h1,h2,h3{font-family:'Montserrat',sans-serif; letter-spacing:.2px}
+    a{color:inherit}
+    .accent{color:var(--gold)}
+    .muted{color:var(--muted)}
+    .container{max-width:1180px;margin:0 auto;padding:0 22px}
+    .section{padding:110px 0; position:relative}
+    .section.tight{padding:90px 0}
+    .chip{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:999px;
+      background:linear-gradient(180deg, rgba(212,165,116,.14), rgba(17,24,39,.25));
+      border:1px solid rgba(212,165,116,.22);
+      color:var(--muted);
+      backdrop-filter: blur(10px);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+    .chip .dot{
+      width:8px; height:8px; border-radius:99px;
+      background: radial-gradient(circle at 30% 30%, var(--gold2), var(--gold));
+      box-shadow:0 0 18px rgba(212,165,116,.55);
+    }
+
+    /* NAVBAR */
+    .nav{
+      position:fixed; top:0; left:0; right:0;
+      z-index:9999;
+      transition:background var(--t), border-color var(--t), transform var(--t);
+      background:transparent;
+      border-bottom:1px solid transparent;
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 22px;
+      max-width:1180px; margin:0 auto;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; text-decoration:none;
+      font-family:'Montserrat',sans-serif; font-weight:800;
+      letter-spacing:.18em; text-transform:uppercase;
+      font-size:14px;
+    }
+    .brand-badge{
+      width:34px;height:34px;border-radius:12px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(241,194,125,.9), rgba(212,165,116,.35) 45%, rgba(15,23,42,.35) 80%),
+        linear-gradient(135deg, rgba(212,165,116,.35), rgba(17,24,39,.25));
+      border:1px solid rgba(212,165,116,.35);
+      box-shadow:0 12px 30px rgba(212,165,116,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .brand-badge:after{
+      content:"";
+      position:absolute; inset:-60% -40%;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,.12), transparent);
+      transform:rotate(20deg);
+      animation:shine 6.5s linear infinite;
+    }
+    @keyframes shine{
+      0%{transform:translateX(-35%) rotate(20deg)}
+      100%{transform:translateX(35%) rotate(20deg)}
+    }
+    .nav-links{
+      display:flex; gap:18px; align-items:center;
+    }
+    .nav-links a{
+      text-decoration:none;
+      color:rgba(229,231,235,.86);
+      font-weight:600;
+      font-size:14px;
+      padding:10px 12px;
+      border-radius:12px;
+      transition:background var(--t), color var(--t), transform var(--t);
+    }
+    .nav-links a:hover{
+      background:rgba(212,165,116,.10);
+      color:#fff;
+      transform:translateY(-1px);
+    }
+    .nav-cta{
+      text-decoration:none;
+      padding:11px 14px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:13px;
+      color:#08101f;
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      box-shadow:0 16px 40px rgba(212,165,116,.25);
+      transition:transform var(--t), box-shadow var(--t), filter var(--t);
+      border:1px solid rgba(212,165,116,.30);
+    }
+    .nav-cta:hover{
+      transform:translateY(-2px);
+      box-shadow:0 22px 52px rgba(212,165,116,.35);
+      filter:saturate(1.1);
+    }
+    .nav.scrolled{
+      background:rgba(10,14,24,.72);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid rgba(212,165,116,.15);
+    }
+
+    /* Mobile menu */
+    .burger{
+      display:none;
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(212,165,116,.22);
+      background:rgba(17,24,39,.35);
+      backdrop-filter:blur(10px);
+      cursor:pointer;
+      transition:transform var(--t), background var(--t);
+    }
+    .burger:hover{transform:translateY(-1px); background:rgba(212,165,116,.10)}
+    .burger span{
+      display:block;
+      width:18px;height:2px;margin:0 auto;
+      background:rgba(229,231,235,.9);
+      border-radius:99px;
+      position:relative;
+    }
+    .burger span:before,.burger span:after{
+      content:"";
+      position:absolute; left:0;
+      width:18px;height:2px;border-radius:99px;
+      background:rgba(229,231,235,.9);
+      transition:transform var(--t), top var(--t), opacity var(--t);
+    }
+    .burger span:before{top:-6px}
+    .burger span:after{top:6px}
+    .burger.open span{background:transparent}
+    .burger.open span:before{top:0; transform:rotate(45deg)}
+    .burger.open span:after{top:0; transform:rotate(-45deg)}
+    .mobile-panel{
+      display:none;
+      position:fixed; top:70px; left:16px; right:16px;
+      background:rgba(10,14,24,.86);
+      border:1px solid rgba(212,165,116,.15);
+      border-radius:18px;
+      padding:14px;
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(16px);
+      z-index:9998;
+    }
+    .mobile-panel a{
+      display:block;
+      padding:14px 12px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:700;
+      color:rgba(229,231,235,.92);
+      transition:background var(--t);
+    }
+    .mobile-panel a:hover{background:rgba(212,165,116,.10)}
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex; align-items:center;
+      position:relative;
+      padding-top:94px;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(120deg, rgba(15,23,42,.92), rgba(15,23,42,.84) 35%, rgba(15,23,42,.92)),
+        url("https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1600") center/cover;
+      filter:saturate(1.05) contrast(1.03);
+      z-index:-3;
+    }
+    .hero:after{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(900px 600px at 20% 20%, rgba(212,165,116,.20), transparent 55%),
+        radial-gradient(900px 600px at 80% 30%, rgba(241,194,125,.12), transparent 55%),
+        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.55));
+      z-index:-2;
+    }
+    /* subtle wood grain overlay */
+    .grain{
+      pointer-events:none;
+      position:absolute; inset:0;
+      opacity:.22;
+      background-image:url("https://images.unsplash.com/photo-1519710887729-7d9f4b8a3a9a?w=1200");
+      background-size:cover;
+      mix-blend-mode:overlay;
+      filter:contrast(1.2) saturate(.9);
+      z-index:-1;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:48px;
+      align-items:center;
+    }
+    .hero h1{
+      font-size: clamp(2.35rem, 4vw, 3.6rem);
+      line-height:1.05;
+      margin:14px 0 14px;
+    }
+    .hero p{
+      margin:0;
+      font-size:16px;
+      color:rgba(229,231,235,.86);
+    }
+    .hero .lead{
+      margin-top:14px;
+      font-size:18px;
+      color:rgba(229,231,235,.90);
+      max-width:54ch;
+    }
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:12px;
+      margin-top:26px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:16px 20px;
+      border-radius:16px;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.02em;
+      transition:transform var(--t), box-shadow var(--t), background var(--t), border-color var(--t);
+      border:1px solid rgba(212,165,116,.25);
+      position:relative;
+      overflow:hidden;
+    }
+    .btn.primary{
+      color:#07101f;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      box-shadow:0 18px 55px rgba(212,165,116,.25);
+    }
+    .btn.primary:hover{transform:translateY(-3px); box-shadow:0 24px 65px rgba(212,165,116,.35)}
+    .btn.ghost{
+      color:rgba(229,231,235,.92);
+      background:rgba(17,24,39,.30);
+      backdrop-filter:blur(10px);
+    }
+    .btn.ghost:hover{transform:translateY(-3px); border-color:rgba(212,165,116,.45)}
+    .btn .spark{
+      position:absolute; inset:-120% -80%;
+      background:linear-gradient(115deg, transparent 35%, rgba(255,255,255,.18), transparent 65%);
+      transform:rotate(18deg);
+      animation:spark 7.2s linear infinite;
+      opacity:.55;
+    }
+    @keyframes spark{
+      0%{transform:translateX(-25%) rotate(18deg)}
+      100%{transform:translateX(25%) rotate(18deg)}
+    }
+    .hero-panel{
+      background:linear-gradient(180deg, rgba(17,24,39,.60), rgba(10,14,24,.72));
+      border:1px solid rgba(212,165,116,.18);
+      border-radius:var(--r2);
+      padding:22px;
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(14px);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-panel:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:radial-gradient(500px 260px at 30% 20%, rgba(212,165,116,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .panel-top{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:14px;
+    }
+    .panel-kicker{
+      font-size:12px;
+      color:rgba(229,231,235,.70);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+    }
+    .panel-score{
+      display:flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(212,165,116,.20);
+      background:rgba(212,165,116,.10);
+      font-weight:800;
+      color:rgba(229,231,235,.92);
+      font-size:13px;
+    }
+    .stars{color:var(--gold2); letter-spacing:2px}
+    .panel-list{
+      margin:16px 0 0; padding:0; list-style:none;
+      display:grid; gap:12px;
+    }
+    .panel-item{
+      display:flex; gap:12px; align-items:flex-start;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(212,165,116,.12);
+      background:rgba(11,18,32,.55);
+      transition:transform var(--t), border-color var(--t);
+    }
+    .panel-item:hover{transform:translateY(-2px); border-color:rgba(212,165,116,.35)}
+    .check{
+      width:22px;height:22px;border-radius:10px;
+      background:radial-gradient(circle at 30% 30%, rgba(241,194,125,.85), rgba(212,165,116,.25));
+      border:1px solid rgba(212,165,116,.35);
+      box-shadow:0 10px 24px rgba(212,165,116,.18);
+      display:flex;align-items:center;justify-content:center;
+      color:#07101f;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .panel-item p{margin:0; color:rgba(229,231,235,.84); font-size:14px}
+    .panel-item b{color:#fff}
+
+    /* Decorative floating orbs */
+    .orb{
+      position:absolute; border-radius:999px;
+      filter:blur(0px);
+      opacity:.7;
+      mix-blend-mode:screen;
+      pointer-events:none;
+      animation:float 8s ease-in-out infinite;
+    }
+    .orb.one{width:180px;height:180px; left:-40px; bottom:140px;
+      background:radial-gradient(circle at 30% 30%, rgba(241,194,125,.35), transparent 65%);
+      animation-duration:9.2s;
+    }
+    .orb.two{width:240px;height:240px; right:-80px; top:120px;
+      background:radial-gradient(circle at 40% 40%, rgba(212,165,116,.25), transparent 65%);
+      animation-duration:10.8s;
+    }
+    @keyframes float{
+      0%,100%{transform:translateY(0px)}
+      50%{transform:translateY(-18px)}
+    }
+
+    /* PREMIUM SECTION TITLE */
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:18px;
+      margin-bottom:34px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: clamp(1.7rem, 2.5vw, 2.25rem);
+      line-height:1.1;
+    }
+    .section-title p{
+      margin:0;
+      max-width:56ch;
+      color:rgba(182,192,209,.92);
+      font-size:15px;
+    }
+
+    /* SERVICES */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:18px;
+    }
+    .card{
+      grid-column: span 3;
+      background:linear-gradient(180deg, rgba(17,24,39,.72), rgba(10,14,24,.86));
+      border:1px solid rgba(212,165,116,.14);
+      border-radius:var(--r2);
+      padding:22px;
+      box-shadow:0 16px 45px rgba(0,0,0,.45);
+      position:relative;
+      overflow:hidden;
+      transition:transform var(--t), border-color var(--t), box-shadow var(--t);
+      transform-style:preserve-3d;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:radial-gradient(420px 220px at 30% 20%, rgba(212,165,116,.16), transparent 60%);
+      opacity:.85;
+      pointer-events:none;
+      transition:opacity var(--t);
+    }
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:rgba(212,165,116,.45);
+      box-shadow:0 22px 70px rgba(0,0,0,.55), var(--shadowGold);
+    }
+    .card:hover:before{opacity:1}
+    .card-top{display:flex; gap:12px; align-items:center}
+    .pill{
+      width:44px;height:44px;border-radius:16px;
+      display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(135deg, rgba(212,165,116,.20), rgba(17,24,39,.35));
+      border:1px solid rgba(212,165,116,.22);
+      box-shadow:0 14px 40px rgba(212,165,116,.12);
+      font-size:20px;
+    }
+    .card h3{margin:14px 0 8px; font-size:16px}
+    .card p{margin:0; color:rgba(182,192,209,.92); font-size:14px; line-height:1.6}
+    .card .link{
+      display:inline-flex; gap:8px; align-items:center;
+      margin-top:16px;
+      font-weight:800;
+      font-size:13px;
+      text-decoration:none;
+      color:rgba(212,165,116,.92);
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(212,165,116,.18);
+      background:rgba(212,165,116,.06);
+      transition:transform var(--t), background var(--t), border-color var(--t);
+    }
+    .card .link:hover{transform:translateY(-2px); background:rgba(212,165,116,.10); border-color:rgba(212,165,116,.35)}
+
+    /* ABOUT */
+    .two-col{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .about-box{
+      background:linear-gradient(180deg, rgba(17,24,39,.60), rgba(10,14,24,.82));
+      border:1px solid rgba(212,165,116,.14);
+      border-radius:var(--r2);
+      padding:28px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .about-box:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:radial-gradient(600px 320px at 15% 10%, rgba(212,165,116,.18), transparent 65%);
+      pointer-events:none;
+    }
+    .about-box p{color:rgba(182,192,209,.95); margin:10px 0 0; line-height:1.8}
+    .kpis{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .kpi{
+      background:rgba(11,18,32,.62);
+      border:1px solid rgba(212,165,116,.12);
+      border-radius:18px;
+      padding:16px 14px;
+      transition:transform var(--t), border-color var(--t);
+    }
+    .kpi:hover{transform:translateY(-4px); border-color:rgba(212,165,116,.35)}
+    .kpi strong{
+      display:block;
+      font-family:'Montserrat',sans-serif;
+      font-weight:800;
+      color:var(--gold);
+      font-size:28px;
+      line-height:1.05;
+    }
+    .kpi span{color:rgba(182,192,209,.92); font-size:13px}
+    .about-image{
+      border-radius:var(--r2);
+      border:1px solid rgba(212,165,116,.14);
+      overflow:hidden;
+      position:relative;
+      box-shadow:var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.55)),
+        url("https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=1400") center/cover;
+    }
+    .about-image:after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(500px 260px at 30% 20%, rgba(212,165,116,.22), transparent 60%),
+        radial-gradient(600px 280px at 80% 30%, rgba(241,194,125,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .about-badge{
+      position:absolute; left:18px; bottom:18px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(212,165,116,.22);
+      background:rgba(10,14,24,.70);
+      backdrop-filter: blur(12px);
+      box-shadow:0 18px 50px rgba(0,0,0,.55);
+      font-size:13px;
+      color:rgba(229,231,235,.90);
+    }
+    .about-badge b{color:#fff}
+
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
+    }
+    .shot{
+      grid-column:span 4;
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid rgba(212,165,116,.14);
+      box-shadow:0 16px 45px rgba(0,0,0,.50);
+      position:relative;
+      background:#0b1220;
+      transform:translateZ(0);
+    }
+    .shot img{
+      width:100%; height:260px; object-fit:cover; display:block;
+      transform:scale(1.02);
+      transition:transform .55s ease, filter .55s ease;
+      filter:saturate(1.02) contrast(1.02);
+    }
+    .shot:hover img{transform:scale(1.08); filter:saturate(1.08) contrast(1.05)}
+    .shot .overlay{
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, transparent 30%, rgba(0,0,0,.70));
+      display:flex; align-items:flex-end;
+      padding:16px;
+      transition:opacity var(--t);
+      opacity:.92;
+    }
+    .shot .overlay span{
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.04em;
+      color:rgba(229,231,235,.92);
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(212,165,116,.18);
+      background:rgba(212,165,116,.08);
+      backdrop-filter: blur(10px);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:16px;
+    }
+    .quote{
+      grid-column: span 4;
+      border-radius:var(--r2);
+      border:1px solid rgba(212,165,116,.14);
+      background:linear-gradient(180deg, rgba(17,24,39,.70), rgba(10,14,24,.86));
+      box-shadow:0 18px 55px rgba(0,0,0,.50);
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+      transition:transform var(--t), border-color var(--t);
+    }
+    .quote:hover{transform:translateY(-8px); border-color:rgba(212,165,116,.45)}
+    .quote:before{
+      content:"“";
+      position:absolute; top:10px; left:16px;
+      font-size:54px;
+      color:rgba(212,165,116,.22);
+      font-family:serif;
+      line-height:1;
+    }
+    .quote .stars{color:var(--gold2); margin:0 0 10px; font-size:14px}
+    .quote p{margin:0; color:rgba(229,231,235,.88); line-height:1.75}
+    .who{
+      margin-top:14px;
+      display:flex; gap:12px; align-items:center;
+      color:rgba(182,192,209,.95);
+      font-size:13px;
+    }
+    .avatar{
+      width:38px;height:38px;border-radius:14px;
+      border:1px solid rgba(212,165,116,.22);
+      background:linear-gradient(135deg, rgba(212,165,116,.25), rgba(17,24,39,.45));
+      box-shadow:0 14px 35px rgba(212,165,116,.14);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+      color:#07101f;
+    }
+
+    /* CONTACT */
+    .contact{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .contact-card{
+      border-radius:var(--r2);
+      border:1px solid rgba(212,165,116,.14);
+      background:linear-gradient(180deg, rgba(17,24,39,.70), rgba(10,14,24,.86));
+      box-shadow:var(--shadow);
+      padding:24px;
+      position:relative;
+      overflow:hidden;
+    }
+    .contact-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:radial-gradient(520px 280px at 20% 20%, rgba(212,165,116,.16), transparent 60%);
+      pointer-events:none;
+    }
+    .info-line{display:flex; gap:12px; align-items:flex-start; margin:14px 0; color:rgba(182,192,209,.95)}
+    .info-ic{
+      width:38px;height:38px;border-radius:16px;
+      border:1px solid rgba(212,165,116,.22);
+      background:rgba(212,165,116,.08);
+      display:flex; align-items:center; justify-content:center;
+      flex:0 0 auto;
+      box-shadow:0 16px 40px rgba(212,165,116,.10);
+    }
+    .info-line b{display:block; color:#fff; margin-bottom:2px}
+    .info-line a{color:var(--gold2); font-weight:800; text-decoration:none}
+    .info-line a:hover{text-decoration:underline}
+    .hours{
+      margin-top:18px;
+      border-radius:18px;
+      border:1px solid rgba(212,165,116,.12);
+      background:rgba(11,18,32,.60);
+      padding:16px;
+      color:rgba(182,192,209,.95);
+      font-size:13px;
+    }
+    .hours .row{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(212,165,116,.10)}
+    .hours .row:last-child{border-bottom:0}
+    form .field{
+      width:100%;
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid rgba(212,165,116,.18);
+      background:rgba(11,18,32,.65);
+      color:#fff;
+      outline:none;
+      transition:border-color var(--t), transform var(--t);
+      font:inherit;
+    }
+    form .field:focus{border-color:rgba(212,165,116,.55); transform:translateY(-1px)}
+    form textarea.field{min-height:150px; resize:vertical}
+    form .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    form .submit{
+      margin-top:12px;
+      width:100%;
+      cursor:pointer;
+    }
+    .note{
+      margin-top:12px;
+      font-size:12px;
+      color:rgba(156,163,175,.95);
+    }
+
+    /* FOOTER */
+    footer{
+      padding:46px 0 34px;
+      background:rgba(2,6,23,.72);
+      border-top:1px solid rgba(212,165,116,.12);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr;
+      gap:18px;
+      align-items:flex-start;
+    }
+    .foot-title{margin:0 0 10px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; font-size:13px}
+    .foot-links a{
+      display:block;
+      padding:10px 0;
+      text-decoration:none;
+      color:rgba(182,192,209,.95);
+      font-weight:700;
+      font-size:13px;
+      transition:color var(--t), transform var(--t);
+    }
+    .foot-links a:hover{color:#fff; transform:translateX(2px)}
+    .copyright{
+      margin-top:18px;
+      color:rgba(156,163,175,.9);
+      font-size:12px;
+    }
+    .creator a{color:var(--gold2); text-decoration:none; font-weight:900}
+    .creator a:hover{text-decoration:underline}
+
+    /* Scroll reveal */
+    .reveal{opacity:0; transform:translateY(18px); transition:opacity .75s ease, transform .75s ease}
+    .reveal.on{opacity:1; transform:none}
+
+    /* Subtle cursor spotlight (micro-interaction) */
+    .spot{
+      position:fixed;
+      width:540px; height:540px;
+      left:-9999px; top:-9999px;
+      border-radius:999px;
+      background:radial-gradient(circle at center, rgba(212,165,116,.12), transparent 60%);
+      pointer-events:none;
+      mix-blend-mode:screen;
+      filter:blur(0px);
+      opacity:.9;
+      z-index:0;
+      transition:transform .08s linear;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero-grid{grid-template-columns: 1fr; gap:18px}
+      .card{grid-column:span 6}
+      .shot{grid-column:span 6}
+      .quote{grid-column:span 6}
+      .two-col{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 768px){
+      .nav-links{display:none}
+      .burger{display:inline-flex; align-items:center; justify-content:center}
+      .mobile-panel{display:none}
+      .container{padding:0 18px}
+      .section{padding:86px 0}
+      .card{grid-column:span 12}
+      .shot{grid-column:span 12}
+      .quote{grid-column:span 12}
+      form .row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="spot" id="spot"></div>
+
+  <div class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Menuiserie Meyer">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>MEYER</span>
+      </a>
+
+      <div class="nav-links" aria-label="Navigation">
+        <a href="#services">Services</a>
+        <a href="#apropos">À propos</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#avis">Avis</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Demander un devis</a>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-panel" id="mobilePanel" aria-label="Menu mobile">
+    <a href="#services">Services</a>
+    <a href="#apropos">À propos</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#avis">Avis</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" style="margin-top:6px; background:rgba(212,165,116,.10); border:1px solid rgba(212,165,116,.18);">Demander un devis</a>
+  </div>
+
+  <main id="top" class="hero">
+    <div class="grain" aria-hidden="true"></div>
+    <div class="orb one" aria-hidden="true"></div>
+    <div class="orb two" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="chip"><span class="dot"></span> Signature artisanale · Sur mesure · Région lausannoise</div>
+          <h1>Menuiserie <span class="accent">Meyer</span><br/>sur‑mesure, haut de gamme.</h1>
+          <p class="lead">
+            Une maison n’est pas un catalogue. C’est une pièce unique.
+            Depuis plus de <b>80 ans</b>, nous façonnons des intérieurs durables, précis et élégants.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">
+              <span class="spark" aria-hidden="true"></span>
+              Demander un devis
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn ghost" href="#realisations">
+              Voir les réalisations
+              <span aria-hidden="true">↘</span>
+            </a>
+          </div>
+
+          <p style="margin-top:18px; color:rgba(182,192,209,.92); font-size:14px">
+            Jouxtens‑Mézery · Lausanne · Vaud
+          </p>
+        </div>
+</div>
+    </div>
+  </main>
+
+  <section id="services" class="section tight">
+    <div class="container">
+      <div class="section-title reveal">
+        <div>
+          <div class="chip"><span class="dot"></span> Nos services</div>
+          <h2>Le sur‑mesure, du premier trait à la pose.</h2>
+        </div>
+        <p>Un site premium doit rendre votre savoir‑faire évident en 5 secondes : clair, visuel, rassurant.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card reveal" data-tilt>
+          <div class="card-top">
+            <div class="pill">🪵</div>
+            <div>
+              <div style="font-weight:900">Menuiserie artisanale</div>
+              <div style="color:rgba(156,163,175,.95); font-size:12px">Finitions haut de gamme</div>
+            </div>
+          </div>
+          <h3>Mobilier & pièces uniques</h3>
+          <p>Bois nobles, finitions impeccables, rendu premium. Chaque pièce est conçue pour durer.</p>
+          <a class="link" href="#contact">Demander une estimation →</a>
+        </div>
+
+        <div class="card reveal" data-tilt>
+          <div class="card-top">
+            <div class="pill">🚪</div>
+            <div>
+              <div style="font-weight:900">Portes & fenêtres</div>
+              <div style="color:rgba(156,163,175,.95); font-size:12px">Bois / bois‑métal</div>
+            </div>
+          </div>
+          <h3>Esthétique + performance</h3>
+          <p>Isolation, sécurité, élégance. Un rendu soigné qui valorise immédiatement votre façade.</p>
+          <a class="link" href="#realisations">Voir des exemples →</a>
+        </div>
+
+        <div class="card reveal" data-tilt>
+          <div class="card-top">
+            <div class="pill">🏡</div>
+            <div>
+              <div style="font-weight:900">Agencement intérieur</div>
+              <div style="color:rgba(156,163,175,.95); font-size:12px">Cuisines · rangements</div>
+            </div>
+          </div>
+          <h3>Conçu pour votre espace</h3>
+          <p>Optimisation, ergonomie et style. Chaque centimètre compte — et se voit.</p>
+          <a class="link" href="#contact">Parler de votre projet →</a>
+        </div>
+
+        <div class="card reveal" data-tilt>
+          <div class="card-top">
+            <div class="pill">🛠️</div>
+            <div>
+              <div style="font-weight:900">Rénovation</div>
+              <div style="color:rgba(156,163,175,.95); font-size:12px">Restauration & modernisation</div>
+            </div>
+          </div>
+          <h3>Valoriser l’existant</h3>
+          <p>Redonner vie à des éléments de qualité. Un résultat “comme neuf”, mais mieux.</p>
+          <a class="link" href="#avis">Lire les avis →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos" class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <div>
+          <div class="chip"><span class="dot"></span> À propos</div>
+          <h2>80+ ans d’exigence, une seule signature.</h2>
+        </div>
+        <p>Une image premium transforme votre savoir‑faire en confiance, puis en demandes de devis.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="about-box reveal">
+          <h3 style="margin:0 0 8px">Une entreprise familiale, un standard élevé</h3>
+          <p>
+            Depuis plus de <b>80 ans</b>, la Menuiserie Meyer accompagne des projets d’intérieur à Jouxtens‑Mézery
+            et dans la région lausannoise. Notre approche : précision, matériaux durables, finitions impeccables
+            — et une relation client nette, sans promesses floues.
+          </p>
+
+          <div class="kpis">
+            <div class="kpi">
+              <strong>80+</strong>
+              <span>ans d’expérience</span>
+            </div>
+            <div class="kpi">
+              <strong>1000+</strong>
+              <span>projets réalisés</span>
+            </div>
+            <div class="kpi">
+              <strong>100%</strong>
+              <span>sur mesure</span>
+            </div>
+          </div>
+
+          <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn ghost" style="padding:12px 14px;border-radius:14px" href="#contact">Obtenir un devis →</a>
+            <a class="btn ghost" style="padding:12px 14px;border-radius:14px" href="#realisations">Voir la galerie →</a>
+          </div>
+        </div>
+
+        <div class="about-image reveal" aria-label="Atelier / travail du bois">
+          <div class="about-badge">
+            <div style="font-weight:900; letter-spacing:.08em">ATELIER</div>
+            <div style="margin-top:4px; color:rgba(182,192,209,.92)"><b>Bois</b> · <b>Précision</b> · <b>Finition</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="realisations" class="section tight">
+    <div class="container">
+      <div class="section-title reveal">
+        <div>
+          <div class="chip"><span class="dot"></span> Réalisations</div>
+          <h2>Une galerie qui donne envie de vous appeler.</h2>
+        </div>
+        <p>Des images fortes + une mise en page premium = perception “haut de gamme” immédiate.</p>
+      </div>
+
+      <div class="gallery">
+        <div class="shot reveal">
+          <img alt="Cuisine sur mesure" src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1400">
+          <div class="overlay"><span>Cuisines sur mesure</span></div>
+        </div>
+        <div class="shot reveal">
+          <img alt="Boiseries et agencement" src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=1400">
+          <div class="overlay"><span>Agencement intérieur</span></div>
+        </div>
+        <div class="shot reveal">
+          <img alt="Escalier bois" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1400">
+          <div class="overlay"><span>Escaliers & détails</span></div>
+        </div>
+        <div class="shot reveal">
+          <img alt="Atelier menuiserie" src="https://images.unsplash.com/photo-1462556791646-c201b8241a94?w=1400">
+          <div class="overlay"><span>Atelier & savoir‑faire</span></div>
+        </div>
+        <div class="shot reveal">
+          <img alt="Portes et finitions" src="https://images.unsplash.com/photo-1600566753051-f0fbc6b12f70?w=1400">
+          <div class="overlay"><span>Portes & finitions</span></div>
+        </div>
+        <div class="shot reveal">
+          <img alt="Rangements sur mesure" src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=1400">
+          <div class="overlay"><span>Rangements premium</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="avis" class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <div>
+          <div class="chip"><span class="dot"></span> Témoignages</div>
+          <h2>Des avis crédibles, un ton local.</h2>
+        </div>
+        <p>Les prospects veulent de la preuve sociale. Un design premium la rend plus crédible.</p>
+      </div>
+
+      <div class="testimonials">
+        <div class="quote reveal" data-tilt>
+          <div class="stars">★★★★★</div>
+          <p>“Finitions impeccables, chantier propre et délais tenus. On sent l’expérience et le sérieux.”</p>
+          <div class="who">
+            <div class="avatar">M</div>
+            <div><b>Marc</b> · Lausanne</div>
+          </div>
+        </div>
+
+        <div class="quote reveal" data-tilt>
+          <div class="stars">★★★★★</div>
+          <p>“Cuisine sur mesure superbe. Conseils précis, exécution impeccable. Rien à redire.”</p>
+          <div class="who">
+            <div class="avatar">S</div>
+            <div><b>Sophie</b> · Jouxtens‑Mézery</div>
+          </div>
+        </div>
+
+        <div class="quote reveal" data-tilt>
+          <div class="stars">★★★★★</div>
+          <p>“Un artisan rare : qualité, communication claire et rendu haut de gamme. Recommandé.”</p>
+          <div class="who">
+            <div class="avatar">A</div>
+            <div><b>Alain</b> · Prilly</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section tight">
+    <div class="container">
+      <div class="section-title reveal">
+        <div>
+          <div class="chip"><span class="dot"></span> Contact</div>
+          <h2>Parlons de votre projet.</h2>
+        </div>
+        <p>Maquette de démonstration : le formulaire est visuel (pas de backend), mais prêt à brancher.</p>
+      </div>
+
+      <div class="contact">
+        <div class="contact-card reveal">
+          <h3 style="margin:0 0 10px">Menuiserie Meyer</h3>
+
+          <div class="info-line">
+            <div class="info-ic">📍</div>
+            <div>
+              <b>Adresse</b>
+              Route de Neuchâtel 2, 1008 Jouxtens‑Mézery
+            </div>
+          </div>
+
+          <div class="info-line">
+            <div class="info-ic">📞</div>
+            <div>
+              <b>Téléphone</b>
+              <a href="tel:+41216485020">+41 21 648 50 20</a> · <a href="tel:+41793474117">+41 79 347 41 17</a>
+            </div>
+          </div>
+
+          <div class="info-line">
+            <div class="info-ic">✉️</div>
+            <div>
+              <b>Email</b>
+              <a href="mailto:menuiseriemeyer@bluewin.ch">menuiseriemeyer@bluewin.ch</a>
+            </div>
+          </div>
+
+          <div class="hours">
+            <div style="font-weight:900; color:#fff; margin-bottom:6px">Horaires (exemple)</div>
+            <div class="row"><span>Lundi – Vendredi</span><span>08:00 – 12:00 · 13:30 – 17:30</span></div>
+            <div class="row"><span>Samedi</span><span>Sur rendez‑vous</span></div>
+            <div class="row"><span>Dimanche</span><span>Fermé</span></div>
+          </div>
+
+          <div class="note">*Les horaires peuvent être ajustés selon vos préférences.</div>
+        </div>
+
+        <div class="contact-card reveal">
+          <h3 style="margin:0 0 12px">Demande de devis</h3>
+          <form onsubmit="event.preventDefault(); toast('Message envoyé (démo)');">
+            <div class="row">
+              <input class="field" type="text" placeholder="Nom complet" required>
+              <input class="field" type="email" placeholder="Email" required>
+            </div>
+            <div style="margin-top:12px">
+              <textarea class="field" placeholder="Décrivez votre projet (dimensions, délais, style…)" required></textarea>
+            </div>
+            <button class="btn primary submit" type="submit">
+              <span class="spark" aria-hidden="true"></span>
+              Envoyer la demande
+              <span aria-hidden="true">→</span>
+            </button>
+            <div class="note">Cette page est une maquette : aucun envoi réel tant que le formulaire n’est pas connecté.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="foot-title">Menuiserie Meyer</p>
+          <p style="margin:0; color:rgba(182,192,209,.92); max-width:60ch">
+            Maquette ultra‑luxe (textures, micro‑interactions, conversion) — pour montrer ce que votre site peut devenir.
+          </p>
+          <div class="copyright">© 2025 — Tous droits réservés</div>
+          <div class="creator copyright">Site créé par <a href="#" onclick="event.preventDefault();">Web.ia</a></div>
+        </div>
+
+        <div class="foot-links">
+          <p class="foot-title">Liens rapides</p>
+          <a href="#services">Services</a>
+          <a href="#apropos">À propos</a>
+          <a href="#realisations">Réalisations</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="foot-links">
+          <p class="foot-title">Contact</p>
+          <a href="tel:+41216485020">+41 21 648 50 20</a>
+          <a href="mailto:menuiseriemeyer@bluewin.ch">menuiseriemeyer@bluewin.ch</a>
+          <a href="#contact">Route de Neuchâtel 2</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" style="
+    position:fixed; left:16px; bottom:16px; z-index:99999;
+    padding:12px 14px; border-radius:16px;
+    border:1px solid rgba(212,165,116,.22);
+    background:rgba(10,14,24,.86);
+    color:rgba(229,231,235,.92);
+    box-shadow:0 18px 55px rgba(0,0,0,.55);
+    backdrop-filter: blur(14px);
+    transform:translateY(12px);
+    opacity:0;
+    transition:opacity .28s ease, transform .28s ease;
+    pointer-events:none;
+    font-weight:800;
+    font-size:13px;
+  "></div>
+
+  <script>
+    // Navbar solid on scroll
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      if (window.scrollY > 18) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const panel = document.getElementById('mobilePanel');
+    const setPanel = (open) => {
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      panel.style.display = open ? 'block' : 'none';
+    };
+    burger.addEventListener('click', () => setPanel(!burger.classList.contains('open')));
+    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setPanel(false)));
+    window.addEventListener('resize', () => { if (window.innerWidth > 768) setPanel(false); });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+    }, { threshold: 0.16 });
+    revealEls.forEach(el => io.observe(el));
+
+    // Micro-interaction: subtle tilt on cards
+    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+    document.querySelectorAll('[data-tilt]').forEach(el => {
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        const rx = clamp((0.5 - y) * 10, -8, 8);
+        const ry = clamp((x - 0.5) * 10, -8, 8);
+        el.style.transform = `translateY(-10px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+
+    // Cursor spotlight (desktop only)
+    const spot = document.getElementById('spot');
+    let spotOn = window.matchMedia('(hover:hover)').matches;
+    if (spotOn){
+      window.addEventListener('mousemove', (e) => {
+        spot.style.left = (e.clientX - 270) + 'px';
+        spot.style.top  = (e.clientY - 270) + 'px';
+      }, { passive:true });
+    } else {
+      spot.style.display = 'none';
+    }
+
+    // Toast
+    const toastEl = document.getElementById('toast');
+    let toastTimer = null;
+    window.toast = (msg) => {
+      toastEl.textContent = msg;
+      toastEl.style.opacity = '1';
+      toastEl.style.transform = 'translateY(0)';
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toastEl.style.opacity = '0';
+        toastEl.style.transform = 'translateY(12px)';
+      }, 2200);
+    };
+  </script>
+</body>
+</html>
